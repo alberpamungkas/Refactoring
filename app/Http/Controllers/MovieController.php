@@ -43,4 +43,9 @@ class MovieController extends Controller
         $this->movieService->delete($id);
         return redirect('/movies/data')->with('success', 'Data berhasil dihapus');
     }
+    public function data()
+    {
+        $movies = $this->movieService->getMovies();
+        return view('data-movies', compact('movies'));
+    }
 }
